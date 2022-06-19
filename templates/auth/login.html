@@ -1,0 +1,41 @@
+{% extends 'base-page.html' %}
+
+{% block title %}РЕГИСТРАЦИЯ{% endblock %}
+
+{% block container %}
+    <div class="layout_padding contact_section">
+    	<div class="container">
+    		<h1 class="new_text"><strong>ЛОГИН</strong></h1>
+    	</div>
+    	<div class="container-fluid ram">
+    		<div class="row">
+    			<div class="col-md-6">
+    				<div class="email_box">
+                    <div class="input_main">
+                       <div class="container">
+                          <form action="{% url 'login' %}" method="post">
+                           {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form-label" for="id_username"></label>
+                              <input type="text" class="form-input" placeholder="username"
+                                id="id_username" name="username" required>
+                            </div>
+                              <div class="form-group">
+                                  <label class="form-label" for="id_password"></label>
+                              <input type="password" class="form-input" placeholder="password"
+                                    id="id_password" name="password" required>
+                            </div>
+
+                                <div class="send_btn">
+                                <button class="main_bt">ВХОД</button>
+                                </div>
+                              <a class="new_text"><strong>{{ attention }}</strong></a>
+                          </form>
+                       </div>
+                    </div>
+    		</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+{% endblock %}
