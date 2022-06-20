@@ -15,6 +15,9 @@
                        <div class="container">
                           <form action="{% url 'login' %}" method="post">
                            {% csrf_token %}
+                              {% for error in login_form.non_field_errors %}
+                              <span style="color: red">{{ error }}</span>
+                              {% endfor %}
                             <div class="form-group">
                                 <label class="form-label" for="id_username"></label>
                               <input type="text" class="form-input" placeholder="username"
@@ -29,7 +32,6 @@
                                 <div class="send_btn">
                                 <button class="main_bt">ВХОД</button>
                                 </div>
-                              <a class="new_text"><strong>{{ attention }}</strong></a>
                           </form>
                        </div>
                     </div>
