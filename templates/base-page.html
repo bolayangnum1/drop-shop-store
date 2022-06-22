@@ -47,15 +47,17 @@
                         </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                           <a class="nav-item nav-link" href="/">ХИТЫ</a>
+						{% if user.is_staff %}
+                           <a class="nav-item nav-link" href="{% url 'shop' %}">ХИТЫ</a>
                            <a class="nav-item nav-link" href="collection.html">НОВИНКИ</a>
                            <a class="nav-item nav-link" href="shoes.html">АКЦИЯ</a>
                            <a class="nav-item nav-link" href="racing boots.html">ДОСТАВКА</a>
                            <a class="nav-item nav-link" href="{% url 'about' %}">О НАС</a>
                            <a class="nav-item nav-link last" href="#"><img src="{% static 'images/search_icon.png' %}"></a>
                            <a class="nav-item nav-link last" href="contact.html"><img src="{% static 'images/shop_icon.png' %}"></a>
+						{% endif %}
 								{% if user.is_authenticated %}
-									<a class="nav-item nav-link last">{{ user.username }}</h3>
+							<a class="nav-item nav-link last">{{ user.username }}</a>
 								{% else %}
 									<a class="nav-item nav-link last" href="{% url 'login' %}"><img src="{% static 'images/operation_special_putin_vladimir_war_no_russia_president_icon_219104 (2).png' %}">login</a>
 									<a class="nav-item nav-link last" href="{% url 'register' %}"><img src="{% static 'images/operation_special_putin_vladimir_war_no_russia_president_icon_219104 (2).png' %}">register</a>

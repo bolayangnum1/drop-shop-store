@@ -14,7 +14,7 @@ class Product(models.Model):
         ordering = ['pk']
 
     def __str__(self):
-        return f'-- {self.name} -- {self.price}'
+        return f'-- Товар {self.name} -- Цена {self.price}'
 
 
 class Payment(models.Model):
